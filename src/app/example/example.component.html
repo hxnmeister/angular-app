@@ -1,0 +1,40 @@
+<h1 [class.bg]="isBg" [hidden]="isBg">Hello, {{user}}</h1>
+
+<input type="text" value="{{user}}">
+<br>
+<input type="text" [value]="user">
+<br>
+
+<input type="text" [(ngModel)]="user">
+<br>
+
+<div>
+    <input type="checkbox" [(ngModel)]="isBg">
+    <label>Background needed?</label>
+</div>
+
+<!-- <div class="fruits" *ngIf="fruits.length > 0 ">
+    <h2 [ngClass]="{bg: fruits.length > 2}">Fruits:</h2>
+    <ul>
+        <li *ngFor="let fruit of fruits; let i = index">{{fruit}} - {{i}}</li>
+    </ul>
+</div> -->
+
+<!-- <div>
+    <button (click)="decrement()">-</button>
+    {{count}}
+    <button (click)="increment()">+</button>
+</div> -->
+
+<!-- @if (fruits.length > 0) 
+{
+    <div>
+        <h3>Fruits</h3>
+        <ul>
+            @for (fruit of fruits; track $index) 
+            {
+                <li>{{$index}} - {{fruit}}</li>
+            }
+        </ul>
+    </div>
+} -->
