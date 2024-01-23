@@ -1,6 +1,6 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-contacts',
@@ -22,9 +22,9 @@ export class ContactsComponent
   message = '';
   phoneNumbers = [''];
 
-  sendEmail() 
+  sendEmail(form: NgForm) 
   {
-    console.log(this.phoneNumbers);
+    console.log(form);
   }
 
   addPhoneNumber()

@@ -34,7 +34,7 @@
     <button (click)="sendEmail()">Send</button>
 </div> -->
 
-<form #contact="ngForm">
+<form #contact="ngForm" (ngSubmit)="sendEmail(contact)">
     <div>
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" [(ngModel)]="userName" required #inputName="ngModel">
@@ -65,5 +65,5 @@
         <textarea name="message" id="message" cols="20" rows="3" [(ngModel)]="message"></textarea>
     </div>
 
-    <button (click)="sendEmail()" [disabled]="contact.invalid">Send</button>
+    <button [disabled]="contact.invalid">Send</button>
 </form>
