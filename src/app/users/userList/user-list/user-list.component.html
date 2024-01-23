@@ -1,0 +1,9 @@
+<h1>Users</h1>
+
+<app-reactive-form (onAdded)="addUser($event)"></app-reactive-form>
+<br>
+
+<div *ngFor="let user of usersList">
+    <app-user-single [userData]="user"></app-user-single>
+    <hr>
+</div>
