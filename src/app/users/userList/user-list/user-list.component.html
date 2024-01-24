@@ -3,7 +3,7 @@
 <app-reactive-form (onAdded)="addUser($event)"></app-reactive-form>
 <br>
 
-<div *ngFor="let user of usersList">
-    <app-user-single [userData]="user"></app-user-single>
+<div *ngFor="let user of usersList; let i = index">
+    <app-user-single [userData]="user" (userRemoved)="removeUser($event)"></app-user-single>
     <hr>
 </div>

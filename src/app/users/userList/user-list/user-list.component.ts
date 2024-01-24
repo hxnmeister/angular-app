@@ -22,11 +22,16 @@ import { ReactiveFormComponent } from '../../../form/reactive-form/reactive-form
 
 export class UserListComponent 
 {
-  usersList = users;
+  usersList: User[] = users;
 
   addUser(data: any)
   {
     console.log(data);
     this.usersList.push({...data, id: new Date().getTime()});
+  }
+
+  removeUser(id: number)
+  {
+    this.usersList = this.usersList.filter( (user) => user.id !== id );
   }
 }

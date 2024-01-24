@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import User from '../User';
 
 @Component
@@ -13,4 +13,10 @@ import User from '../User';
 export class UserSingleComponent 
 {
   @Input() userData: any;
+  @Output() userRemoved = new EventEmitter<number>();
+
+  removeUser()
+  {
+    this.userRemoved.emit(this.userData.id);
+  }
 }
