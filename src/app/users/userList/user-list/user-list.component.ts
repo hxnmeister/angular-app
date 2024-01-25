@@ -1,37 +1,38 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import users from '../../UsersData';
 import User from '../../User';
 import { UserSingleComponent } from '../../user-single/user-single.component';
 import { ReactiveFormComponent } from '../../../form/reactive-form/reactive-form.component';
+import { UserService } from '../../user.service';
 
 @Component
 ({
   selector: 'app-user-list',
   standalone: true,
   imports: 
-  [
-    NgFor,
-    NgIf,
-    UserSingleComponent,
-    ReactiveFormComponent
-  ],
+  [ NgFor, NgIf, UserSingleComponent, ReactiveFormComponent ],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'
 })
 
 export class UserListComponent 
 {
-  usersList: User[] = users;
+  usersList: User[] = [];
+
+  constructor(private userService: UserService) {}
+
+  ngOnInit()
+  {
+    this.usersList = this.userService.getUsers();
+  }
 
   addUser(data: any)
   {
-    console.log(data);
-    this.usersList.push({...data, id: new Date().getTime()});
+    this.userService.addUser(data);
   }
 
   removeUser(id: number)
   {
-    this.usersList = this.usersList.filter( (user) => user.id !== id );
+    this.userService.removeUser(id);
   }
 }
