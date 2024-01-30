@@ -2,7 +2,7 @@
     <div *ngFor="let product of products">
         <img src="{{product.image}}" alt="">
         <br>
-        <span>{{product.title | lowercase | slice:0:10}}</span>
+        <span><a routerLink="/product/{{product.id}}" routerLinkActive="router-link-active" >{{product.title | lowercase | slice:0:10}}</a></span>
         <br>
         <span>{{product.price | currency:"UAH":"symbol-narrow":"1.2-4"}}</span>
     </div>
